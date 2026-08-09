@@ -1,0 +1,10 @@
+# /etc/systemd/system/pve-config-git.timer
+[Unit]
+Description=Run Proxmox config git snapshot daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
