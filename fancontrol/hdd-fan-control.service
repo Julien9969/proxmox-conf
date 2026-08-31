@@ -1,0 +1,16 @@
+[Unit]
+Description=HDD-temperature based fan control (pwm3/pwm4 via nct6687)
+After=multi-user.target systemd-modules-load.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStartPre=-/sbin/modprobe nct6687
+ExecStartPre=-/sbin/modprobe drivetemp
+ExecStart=/usr/local/bin/hdd-fan-control.sh
+Restart=always
+RestartSec=10
+User=root
+
+[Install]
+WantedBy=multi-user.target

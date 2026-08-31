@@ -48,6 +48,18 @@ since `/etc/pve` is a FUSE-backed pmxcfs mount and shouldn't be git'd directly.
 ./sync.sh
 ```
 
+## Fancontrol
+
+1. create link of for the script file
+```bash
+sudo ln -s "$(pwd)/hdd-fan-control.sh" /usr/local/bin/hdd-fan-control.sh
+```
+2. copy the service file and start
+```bash
+cp hdd-fan-control.service /etc/systemd/system/ && sudo systemctl enable hdd-fan-control.service
+sudo daemon-reload
+```
+
 ## Notes
 
 - `pve/` is overwritten (with `--delete`) on every sync, so it always mirrors
