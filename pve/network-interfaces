@@ -6,7 +6,7 @@ iface nic0 inet manual
 auto vmbr0
 iface vmbr0 inet static
 	address 192.168.1.100/24
-	gateway 192.168.1.254
+	gateway 192.168.1.1
 	bridge-ports nic0
 	bridge-stp off
 	bridge-fd 0
